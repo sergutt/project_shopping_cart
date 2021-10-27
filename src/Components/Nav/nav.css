@@ -1,0 +1,24 @@
+nav {
+  height: 10vh;
+  min-height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rosybrown;
+}
+
+.title {
+  margin-left: 100px;
+}
+
+.link {
+  color: white;
+  color: white;
+  text-decoration: none;
+}
+
+.icon {
+  height: 30px;
+  width: 30px;
+  margin-right: 100px;
+}

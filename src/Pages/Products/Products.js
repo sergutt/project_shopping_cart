@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Item from "../../Components/Item/Item";
+import "./products.css";
 
 const Products = () => {
   const [allProducts, setAllProducts] = useState([]);
@@ -10,8 +12,10 @@ const Products = () => {
   }, []);
 
   return (
-    <div>
-      <h1>This is the products page</h1>
+    <div className="product_list_container">
+      {allProducts.map((product, index) => (
+        <Item key={index} product={product} />
+      ))}
     </div>
   );
 };

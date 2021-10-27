@@ -1,32 +1,21 @@
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Products from "./Pages/Products/Products";
 import Product from "./Pages/Product/Product";
 import Cart from "./Pages/Cart/Cart";
 import Checkout from "./Pages/Checkout/Checkout";
+import Nav from "./Components/Nav/Nav";
+import CartContext from "./Context/CartContext";
+import { useState } from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <Router>
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Products</Link>
-              </li>
-              <li>
-                <Link to="/product/1">Product</Link>
-              </li>
-              <li>
-                <Link to="/cart">cart</Link>
-              </li>
-              <li>
-                <Link to="/checkout">checkout</Link>
-              </li>
-            </ul>
-          </nav>
+  const [cart, setCart] = useState([]);
 
+  return (
+    <CartContext.Provider value={{ cart, setCart }}>
+      <div className="App">
+        <Router>
+          <Nav />
           <Switch>
             <Route exact path="/">
               <Products />
@@ -44,9 +33,9 @@ function App() {
               <h1>404 page</h1>
             </Route>
           </Switch>
-        </div>
-      </Router>
-    </div>
+        </Router>
+      </div>
+    </CartContext.Provider>
   );
 }
 
